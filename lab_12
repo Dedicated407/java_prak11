@@ -1,0 +1,36 @@
+package ikbo.lab12;
+import java.util.Scanner;
+import java.util.regex.*;
+
+public class Main {
+    public static void main(String[] args) {
+        String regex, s, regex_february;
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.println("Задание №3: ");
+        regex = "(0[1-9]|[12][0-9]|3[01])\\/(0[1-9]|1[012])\\/(19\\d{2}|[2-9]\\d{3})";
+        regex_february = "(2[89]|3[01])\\/(02)\\/(19\\d{2}|[2-9]\\d{3})";
+        s = scanner.nextLine();
+        if (Pattern.matches(regex_february, s))
+            System.out.println("false");
+        else
+            System.out.println(Pattern.matches(regex, s));
+
+
+        System.out.println("Задание №4: ");
+        regex = "\\w+@\\w+\\.\\w+";
+        s = scanner.nextLine();
+        System.out.println(Pattern.matches(regex, s));
+    }
+}
+/*
+
+3.	Написать регулярное выражение, определяющее является ли данная строчка датой в формате dd/mm/yyyy. Начиная с 1900 года до 9999 года.
+– пример правильных выражений: 29/02/2000, 30/04/2003, 01/01/2003.
+– пример неправильных выражений: 35/02/2001, 30-04-2003, 1/1/1899.
+
+4.	Написать регулярное выражение, определяющее является ли данная строчка допустимым (корректным) е-mail адресом согласно RFC под номером 2822.
+– пример правильных выражений: user@example.com, root@localhost.ru
+– пример неправильных выражений: myhost@@@com.ru, @my.ru, Julia String, root@localhost
+
+ */
